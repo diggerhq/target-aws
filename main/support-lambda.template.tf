@@ -1,6 +1,6 @@
 
 
-{% if False %}
+{% if lambda_service_exists %}
 
   module "support_lambda" {
     source = "../support/lambda"
