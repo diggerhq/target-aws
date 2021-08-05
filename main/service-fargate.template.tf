@@ -1,13 +1,13 @@
 {% if environment_config.tcp_service %}
   
   module "service-{{service_name}}" {
-    source = "../fargate-service-tcp"
+    source = "../services/fargate-tcp"
 
     ecs_cluster = aws_ecs_cluster.app
     service_name = "{{service_name}}"
     region = var.region
     service_vpc = aws_vpc.vpc
-    service_security_groups = [aws_security_group.ecs_service_sg.id]
+    service_security_groups = [local.support_fargate_ecs_sg_id]
     # image_tag_mutability
     lb_subnet_a = aws_subnet.public_subnet_a
     lb_subnet_b = aws_subnet.public_subnet_b
@@ -47,13 +47,13 @@
 
 {% elif load_balancer %}
   module "service-{{service_name}}" {
-    source = "git::https://github.com/diggerhq/module-fargate-service.git?ref=v2.0.1"
+    source = "../services/fargate-http"
 
     ecs_cluster = aws_ecs_cluster.app
     service_name = "{{service_name}}"
     region = var.region
     service_vpc = local.vpc
-    service_security_groups = [aws_security_group.ecs_service_sg.id]
+    service_security_groups = [local.support_fargate_ecs_sg_id]
     # image_tag_mutability
     lb_subnet_a = aws_subnet.public_subnet_a
     lb_subnet_b = aws_subnet.public_subnet_b
@@ -160,7 +160,7 @@
 
 {% else %}
   module "service-{{service_name}}" {
-    source = "../module-fargate-service-nolb"
+    source = "../services/fargate-nolb"
 
     ecs_cluster = aws_ecs_cluster.app
     service_name = "{{service_name}}"

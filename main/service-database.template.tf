@@ -34,7 +34,7 @@
   }
 
   module "app_rds" {
-    source = "../rds"
+    source = "../services/rds"
     
     {% if environment_config.rds_instance_type %}
     instance_class = "{{environment_config.rds_instance_type}}"

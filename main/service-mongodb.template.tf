@@ -39,7 +39,7 @@ resource "aws_security_group" "mongodb" {
     from_port = 27017
     to_port = 27017
     protocol = "tcp"
-    security_groups = [aws_security_group.ecs_service_sg.id, aws_security_group.bastion_sg.id]
+    security_groups = [local.support_fargate_ecs_sg_id, aws_security_group.bastion_sg.id]
   }
 
   # Only postgres in
@@ -47,7 +47,7 @@ resource "aws_security_group" "mongodb" {
     from_port = 443
     to_port = 443
     protocol = "tcp"
-    security_groups = [aws_security_group.ecs_service_sg.id, aws_security_group.bastion_sg.id]
+    security_groups = [local.support_fargate_ecs_sg_id, aws_security_group.bastion_sg.id]
   }
 
   # Allow all outbound traffic.
