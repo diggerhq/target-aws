@@ -8,7 +8,6 @@
     ecs_cluster_name = var.ecs_cluster_name
   }
 
-
   locals {
     support_fargate_ecs_sg_id = module.support_fargate.security_group_id
   }
