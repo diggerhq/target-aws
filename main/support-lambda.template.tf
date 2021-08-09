@@ -1,6 +1,6 @@
 
 
-{% if lambda_service_exists %}
+{% if environment_config.lambda_service_exists %}
 
   module "support_lambda" {
     source = "../support/lambda"

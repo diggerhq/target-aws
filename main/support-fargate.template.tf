@@ -1,6 +1,6 @@
 
 
-{% if fargate_service_exists %}
+{% if environment_config.fargate_service_exists %}
 
   module "support_fargate" {
     source = "../support/fargate"

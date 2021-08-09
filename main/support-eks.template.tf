@@ -1,6 +1,6 @@
 
 
-{% if eks_service_exists %}
+{% if environment_config.eks_service_exists %}
 
   module "support_eks" {
     source = "../support/eks"
