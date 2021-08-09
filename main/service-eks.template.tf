@@ -4,7 +4,7 @@ resource "aws_ecr_repository" "{{service_name}}_ecr" {
   image_tag_mutability = true
 }
 
-output "docker_registry" {
+output "{{service_name}}_docker_registry" {
   value = aws_ecr_repository.{{service_name}}_ecr.repository_url
 }
 
