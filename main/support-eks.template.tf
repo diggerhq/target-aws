@@ -12,7 +12,6 @@
     eks_node_min = 2
     eks_node_desired = 2
     node_instance_type = "t3.small"
-    ecs_cluster_name = var.ecs_cluster_name
   }
 
   locals {
