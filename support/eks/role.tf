@@ -1,6 +1,6 @@
 
 resource "aws_iam_role" "ekscluster-role" {
-  name = "ekscluster-role"
+  name = var.cluster_name
 
   force_detach_policies = "true"
 
