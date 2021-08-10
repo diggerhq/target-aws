@@ -34,7 +34,7 @@ resource "aws_iam_role_policy_attachment" "ekscluster-role-AmazonEKSVPCResourceC
 
 
 resource "aws_iam_role" "eksnode-group" {
-  name = "eksnode-group"
+  name = var.cluster_name
 
   force_detach_policies = "true"
 
