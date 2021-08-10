@@ -14,7 +14,4 @@
     node_instance_type = "t3.small"
   }
 
-  locals {
-    support_fargate_ecs_sg_id = module.support_fargate.security_group_id
-  }
 {% endif %}
