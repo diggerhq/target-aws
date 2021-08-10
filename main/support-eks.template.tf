@@ -21,6 +21,7 @@ output "DGVAR_EKS_API_ENDPOINT" {
 
 output "DGVAR_EKS_KUBECONFIG_CERTIFICATE_AUTHORITY_DATA" {
   value = module.support_eks.kubeconfig-certificate-authority-data
+  sensitive = true
 }
 
 {% endif %}
