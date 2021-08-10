@@ -14,4 +14,13 @@
     node_instance_type = "t3.small"
   }
 
+
+output "DGVAR_EKS_API_ENDPOINT" {
+  value = module.support_eks.endpoint
+}
+
+output "DGVAR_EKS_KUBECONFIG_CERTIFICATE_AUTHORITY_DATA" {
+  value = module.support_eks.kubeconfig-certificate-authority-data
+}
+
 {% endif %}
