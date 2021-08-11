@@ -77,6 +77,10 @@ variable "health_check_timeout" {
   default = "10"
 }
 
+variable "health_check_grace_period_seconds" {
+  default = "1"
+}
+
 # What HTTP response code to listen for
 variable "health_check_matcher" {
   default = "200"

@@ -25,12 +25,13 @@ resource "aws_appautoscaling_target" "app_scale_target" {
 }
 
 resource "aws_ecs_task_definition" "app" {
-  family                   = var.container_name
-  requires_compatibilities = [var.launch_type]
-  network_mode             = "awsvpc"
-  cpu                      = var.task_cpu
-  memory                   = var.task_memory
-  execution_role_arn       = aws_iam_role.ecsTaskExecutionRole.arn
+  family                            = var.container_name
+  requires_compatibilities          = [var.launch_type]
+  network_mode                      = "awsvpc"
+  cpu                               = var.task_cpu
+  memory                            = var.task_memory
+  execution_role_arn                = aws_iam_role.ecsTaskExecutionRole.arn
+  health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   # defined in role.tf
   # task_role_arn = aws_iam_role.app_role.arn
