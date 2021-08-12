@@ -31,7 +31,6 @@ resource "aws_ecs_task_definition" "app" {
   cpu                               = var.task_cpu
   memory                            = var.task_memory
   execution_role_arn                = aws_iam_role.ecsTaskExecutionRole.arn
-  health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   # defined in role.tf
   # task_role_arn = aws_iam_role.app_role.arn
@@ -81,6 +80,7 @@ resource "aws_ecs_service" "app" {
   launch_type     = var.launch_type
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = var.replicas
+  health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   network_configuration {
     security_groups = concat([aws_security_group.nsg_task.id], var.service_security_groups)
