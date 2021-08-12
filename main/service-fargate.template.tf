@@ -21,9 +21,6 @@
     health_check_interval = "{{environment_config.health_check_interval}}"
     {% endif %}
 
-    {% if environment_config.health_check_grace_period_seconds %}
-    health_check_grace_period_seconds = "{{environment_config.health_check_grace_period_seconds}}"
-    {% endif %}
 
     # health_check_timeout
     # health_check_matcher
@@ -71,6 +68,9 @@
     health_check_enabled = false
     {% endif %}
 
+    {% if environment_config.health_check_grace_period_seconds %}
+    health_check_grace_period_seconds = "{{environment_config.health_check_grace_period_seconds}}"
+    {% endif %}
 
     {% if environment_config.lb_protocol %}
     lb_protocol = "{{environment_config.lb_protocol}}"
