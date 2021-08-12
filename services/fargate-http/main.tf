@@ -88,7 +88,7 @@ resource "aws_ecs_service" "app" {
       var.lb_subnet_a.id,
       var.lb_subnet_b.id
     ]
-    assign_public_ip = false
+    assign_public_ip = true
     # subnets         = split(",", var.private_subnets)
   }
 
