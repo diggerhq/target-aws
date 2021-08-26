@@ -20,7 +20,7 @@
   # TODO: if routing is enabled for project use the routing gateway
   # instead of creating one
   resource "aws_api_gateway_rest_api" "support_lambda_gateway" {
-    name = "${var.project_name}-${var.environment}"
+    name = "${var.app}-${var.environment}"
   }
 
 
