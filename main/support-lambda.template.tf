@@ -11,6 +11,12 @@
     # image_uri = var.lambda_image_uri
   }
 
+
+  resource "aws_ecr_repository" "support_lambda_repo" {
+    name                 = "${var.app}-${var.environment}"
+    image_tag_mutability = "IMMUTABLE"
+  }
+
   # TODO: if routing is enabled for project use the routing gateway
   # instead of creating one
   resource "aws_api_gateway_rest_api" "support_lambda_gateway" {

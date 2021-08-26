@@ -32,7 +32,7 @@ resource "aws_lambda_permission" "lambda_permission" {
   count = var.api_gateway_trigger ? 1 : 0
   statement_id  = "${var.project_name}${var.environment}${var.service_name}APIInvoke"
   action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.test_lambda.function_name
+  function_name = aws_lambda_function.lambda.function_name
   principal     = "apigateway.amazonaws.com"
 
   # The /*/*/* part allows invocation from any stage, method and resource path
@@ -41,9 +41,9 @@ resource "aws_lambda_permission" "lambda_permission" {
 }
 
 output "lambda_arn" {
-  value = aws_lambda_function.test_lambda.arn
+  value = aws_lambda_function.lambda.arn
 }
 
 output "lambda_invoke_arn" {
-  value = aws_lambda_function.test_lambda.invoke_arn
+  value = aws_lambda_function.lambda.invoke_arn
 }

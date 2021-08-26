@@ -1,9 +1,9 @@
 module "service-{{service_name}}" {
   source = "../services/lambda"
-  project_name = var.project_name
+  project_name = var.app
   environment = var.environment
   service_name = "{{service_name}}"
-  ecr_repo = aws_ecr_repository.lambda_repo
+  ecr_repo = aws_ecr_repository.support_lambda_repo
   api_gateway = aws_api_gateway_rest_api.support_lambda_gateway
   image_uri = var.lambda_image_uri
   {% if environment_config.lambda_role %}
@@ -31,7 +31,7 @@ module "service-{{service_name}}" {
 }
 
 output "{{service_name}}_docker_registry" {
-  value = aws_ecr_repository.lambda_repo.repository_url
+  value = aws_ecr_repository.support_lambda_repo.repository_url
 }
 
 output "{{service_name}}_lb_dns" {
