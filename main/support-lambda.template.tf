@@ -8,7 +8,7 @@
     environment = var.environment
     region = var.region
     image_tag_mutability = "IMMUTABLE"
-    image_uri = var.lambda_image_uri
+    # image_uri = var.lambda_image_uri
   }
 
   # TODO: if routing is enabled for project use the routing gateway
