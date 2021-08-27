@@ -26,7 +26,7 @@ module "service-{{service_name}}" {
   service_name = "{{service_name}}"
   ecr_repo = aws_ecr_repository.support_lambda_repo
   api_gateway = aws_api_gateway_rest_api.support_lambda_gateway
-  image_uri = var.lambda_image_uri
+  image_uri = "{{environment_config.lambda_image_uri}}"
   {% if environment_config.lambda_role %}
   lambda_role = "{{environment_config.lambda_role}}"
   {% else %}

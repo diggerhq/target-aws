@@ -25,8 +25,3 @@ variable "environment" {
 variable "ecs_cluster_name" {}
 
 
-# for lambda
-variable "lambda_image_uri" {
-  default = null
-}
-
