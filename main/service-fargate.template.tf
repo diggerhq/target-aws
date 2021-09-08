@@ -3,7 +3,7 @@
   module "service-{{service_name}}" {
     source = "../services/fargate-tcp"
 
-    ecs_cluster = aws_ecs_cluster.app
+    ecs_cluster = local.ecs_cluster
     service_name = "{{service_name}}"
     region = var.region
     service_vpc = aws_vpc.vpc
@@ -50,7 +50,7 @@
   module "service-{{service_name}}" {
     source = "../services/fargate-http"
 
-    ecs_cluster = aws_ecs_cluster.app
+    ecs_cluster = local.ecs_cluster
     service_name = "{{service_name}}"
     region = var.region
     service_vpc = local.vpc
@@ -166,7 +166,7 @@
   module "service-{{service_name}}" {
     source = "../services/fargate-nolb"
 
-    ecs_cluster = aws_ecs_cluster.app
+    ecs_cluster = local.ecs_cluster
     service_name = "{{service_name}}"
     region = var.region
     service_vpc = local.vpc
