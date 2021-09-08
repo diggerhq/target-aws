@@ -5,15 +5,19 @@ variable "aws_key" {
 variable "aws_secret" {
 }
 
+{% if digger_aws_key %}
 variable "digger_aws_key" {}
 variable "digger_aws_secret" {}
+{% endif %}
 
 terraform {
   required_version = ">= 0.12"
 
+  {% if backend_bucket_name %}
   # vars are not allowed in this block
   # see: https://github.com/hashicorp/terraform/issues/22088
   backend "s3" {}
+  {% endif %}
 
   required_providers {
     archive = {
@@ -45,6 +49,8 @@ provider "aws" {
   secret_key = var.aws_secret  
 }
 
+
+{% if digger_aws_key %}
 # digger account provider
 provider "aws" {
   alias = "digger"
@@ -54,4 +60,4 @@ provider "aws" {
   access_key = var.digger_aws_key
   secret_key = var.digger_aws_secret  
 }
-
+{% endif %}
