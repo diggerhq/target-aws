@@ -13,7 +13,7 @@ variable "digger_aws_secret" {}
 terraform {
   required_version = ">= 0.12"
 
-  {% if backend_bucket_name %}
+  {% if aws_key %}
   # vars are not allowed in this block
   # see: https://github.com/hashicorp/terraform/issues/22088
   backend "s3" {}
