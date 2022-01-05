@@ -57,7 +57,7 @@ provider "aws" {
   version = "= 3.45.0"
   region  = var.region
   # profile = var.aws_profile
-  access_key = var.digger_aws_key
-  secret_key = var.digger_aws_secret  
+  access_key = var.aws_key
+  secret_key = var.aws_secret  
 }
 
