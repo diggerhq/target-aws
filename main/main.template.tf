@@ -50,7 +50,7 @@ provider "aws" {
 }
 
 
-{% if digger_aws_key %}
+
 # digger account provider
 provider "aws" {
   alias = "digger"
@@ -60,4 +60,4 @@ provider "aws" {
   access_key = var.digger_aws_key
   secret_key = var.digger_aws_secret  
 }
-{% endif %}
+
